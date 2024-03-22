@@ -1,25 +1,22 @@
 #include "main.h"
 
 /**
- * leet - encode string into 1337 leet
- * @s: string to manipulate
- * Return: string
+ * leet - Converts to leet format
+ * @s: This is the string to be converted
+ *
+ * Return: The formatted string
  */
-
 char *leet(char *s)
 {
-
-	int a[11] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
-	int b[11] = {'4', '4', '3', '3', '0', '0', '7', '7', '1', '1'};
-
+	char options[] = {65, 52, 69, 51, 79, 48, 84, 55, 76, 49};
 	int i, j;
 
-	for (j = 0; s[j] != '\0'; j++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (i = 0; a[i] != '\0'; i++)
+		for (j = 0; j < 10; j += 2)
 		{
-			if (s[j] == a[i])
-				s[j] = b[i];
+			if ((s[i] == options[j] || s[i] == (options[j] + 32)))
+				s[i] = options[j + 1];
 		}
 	}
 

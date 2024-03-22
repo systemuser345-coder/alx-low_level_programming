@@ -1,22 +1,26 @@
 #include "main.h"
 
 /**
- * reverse_array - reverse array elements
- * @a: array
- * @n: number of elements in array
+ * reverse_array - Flips an array
+ * @a: This is the array to be flipped
+ * @n: This is the number of elements in the array
+ *
+ * Return: Null Void
  */
-
 void reverse_array(int *a, int n)
 {
+	int i, first, last, keep, counts;
 
-	int tmp, beg = 0;
-	int end = n - 1; /* omit null terminator in length */
+	counts = n / 2;
+	first = 0;
+	last = n - 1;
 
-	while (beg < end)
+	for (i = 0; i < counts; i++)
 	{
-		tmp = *(a + beg);
-		*(a + beg) = *(a + end);
-		*(a + end) = tmp;
-		beg++, end--;
+		keep = a[first];
+		a[first] = a[last];
+		a[last] = keep;
+		first++;
+		last--;
 	}
 }
